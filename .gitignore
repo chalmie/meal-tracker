@@ -1,0 +1,9 @@
+npm-debug.log
+node_modules
+bower_components
+build
+tmp
+app/*.js
+app/*.js.map
+.DS_Store
+typings
