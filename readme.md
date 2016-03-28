@@ -26,19 +26,13 @@ _Log each food that you eat with some details about the meal and the number of c
 
 * Gulp is used to handle both building the site and launching a server to host the site...
 
-
+    gulp build
     gulp serve
 
 ## Known Bugs
 
-_This application is not fully designed and may have unknown bugs._
+_Selected meal's details remain on the screen when the dropdown filter is used_
 
-_The current gulpfile.js does not handle creation of a production version of the build (with minified js). Front-end dependencies will still be minified._
-
-## To Do (coming in future versions)
-
-1. [ ] No crash at errors during watch. Will log errors but not attempt a rebuild.
-2. [ ] Folder for organizing html files, gulp will build fresh html in the build folder.
 
 ## Support and contact details
 
