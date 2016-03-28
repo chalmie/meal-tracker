@@ -5,12 +5,12 @@ import { Entry } from './entry.model';
   selector: 'edit-entry-details',
   inputs: ['entry'],
   template: `
-  <div class="entry-form">
+  <div class="entry-form col-sm-6">
     <h3>Edit Description: </h3>
     <input value="{{ entry.name }}" class="col-sm-4 input-lg entry-form" #newName/>
     <input value="{{ entry.details }}" class="col-sm-4 input-lg entry-form" #newDetails/>
     <input value="{{ entry.calories }}" class="col-sm-4 input-lg entry-form" #newCalories/>
-   <button (click)="editEntry(newName, newDetails, newCalories)" class="btn-success btn-lg add-button">Add</button>
+   <button (click)="editEntry(newName, newDetails, newCalories)" class="btn-success btn-lg add-button">Edit</button>
  </div>
   `
 })

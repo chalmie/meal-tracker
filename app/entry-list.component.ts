@@ -1,5 +1,6 @@
 import { Component, EventEmitter } from 'angular2/core';
-import { DisplayEntryComponent } from './display-entry.component';
+import { DisplayEntryNameComponent } from './display-entry-name.component';
+import { DisplayEntryDetailsComponent } from './display-entry-details.component';
 import { Entry } from './entry.model';
 import { EditEntryDetailsComponent } from './edit-entry-details.component';
 import { NewEntryComponent } from './new-entry.component';
@@ -10,17 +11,23 @@ import { NewEntryComponent } from './new-entry.component';
   inputs: ['entryList'],
   outputs: ['onEntrySelect'],
   // pipes: [DonePipe],
-  directives: [DisplayEntryComponent, EditEntryDetailsComponent, NewEntryComponent],
+  directives: [DisplayEntryNameComponent, DisplayEntryDetailsComponent, EditEntryDetailsComponent, NewEntryComponent],
   template: `
-  <display-entry *ngFor="#currentEntry of entryList"
-    (click)="entryClicked(currentEntry)"
-    [class.selected]="currentEntry === selectedEntry"
-    [entry]="currentEntry">
-  </display-entry>
-  <edit-entry-details *ngIf="selectedEntry" [entry]="selectedEntry" (click)="editEntry($event)">
-  </edit-entry-details><br>
-  <new-entry (onSubmitNewEntry)="createEntry($event)">
-  </new-entry>
+  <div class="row">
+    <display-entry-details *ngIf="selectedEntry" [entry]="selectedEntry">
+    </display-entry-details>
+    <display-entry-name *ngFor="#currentEntry of entryList"
+      (click)="entryClicked(currentEntry)"
+      [class.selected]="currentEntry === selectedEntry"
+      [entry]="currentEntry">
+    </display-entry-name>
+  </div>
+  <div class="row">
+    <edit-entry-details *ngIf="selectedEntry" [entry]="selectedEntry" (click)="editEntry($event)">
+    </edit-entry-details><br>
+    <new-entry (onSubmitNewEntry)="createEntry($event)">
+    </new-entry>
+  </div>
   `
 })
 

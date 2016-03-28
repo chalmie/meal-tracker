@@ -5,7 +5,7 @@ import {Entry} from './entry.model';
   selector: 'new-entry',
   outputs: ['onSubmitNewEntry'],
   template: `
-  <div class="entry-form">
+  <div class="entry-form col-sm-6">
     <h3>Create Entry:</h3>
     <input placeholder="Name" class="col-sm-4 input-lg" #newName>
     <input placeholder="Details" class="col-sm-4 input-lg" #newDetails>

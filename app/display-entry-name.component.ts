@@ -2,15 +2,15 @@ import { Component } from 'angular2/core';
 import { Entry } from './entry.model';
 
 @Component({
-    selector: 'display-entry',
+    selector: 'display-entry-name',
     inputs: ['entry'],
     template: `
-    <div>
+    <div class="food-names col-sm-12">
       <label>Name: {{entry.name}} </label>
     </div>
     `
 })
 
-export class DisplayEntryComponent {
+export class DisplayEntryNameComponent {
   public entry: Entry;
 }

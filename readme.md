@@ -1,6 +1,6 @@
 # _Meal Tracker_
 
-#### _Log your meals and keep track of your calories__3.25.2016_
+#### _Log your meals and keep track of your calories. 3.25.2016_
 
 ### By _**Blair Peterson**_
 
