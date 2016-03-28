@@ -24,5 +24,6 @@ export class EditEntryDetailsComponent {
     this.entry.name = newName.value;
     this.entry.details = newDetails.value;
     this.entry.calories = parseInt(newCalories.value);
+    this.entry.healthy = this.entry.calories <= 300;
   }
 }

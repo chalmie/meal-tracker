@@ -4,19 +4,26 @@ import { DisplayEntryDetailsComponent } from './display-entry-details.component'
 import { Entry } from './entry.model';
 import { EditEntryDetailsComponent } from './edit-entry-details.component';
 import { NewEntryComponent } from './new-entry.component';
-// import { DonePipe } from './done.pipe';
+import { CaloriePipe } from './calorie.pipe';
 
 @Component({
   selector: 'entry-list',
   inputs: ['entryList'],
   outputs: ['onEntrySelect'],
-  // pipes: [DonePipe],
+  pipes: [CaloriePipe],
   directives: [DisplayEntryNameComponent, DisplayEntryDetailsComponent, EditEntryDetailsComponent, NewEntryComponent],
   template: `
+  <div class="sort">
+    <select (change)="onChange($event.target.value)" class="filter">
+      <option value="none">Show All</option>
+      <option value="healthy">Healthy</option>
+      <option value="unhealthy">Unhealthy</option>
+    </select>
+  </div>
   <div class="row">
     <display-entry-details *ngIf="selectedEntry" [entry]="selectedEntry">
     </display-entry-details>
-    <display-entry-name *ngFor="#currentEntry of entryList"
+    <display-entry-name *ngFor="#currentEntry of entryList | calorie:calorieFilter"
       (click)="entryClicked(currentEntry)"
       [class.selected]="currentEntry === selectedEntry"
       [entry]="currentEntry">
@@ -35,7 +42,7 @@ export class EntryListComponent {
   public entryList: Entry[];
   public onEntrySelect: EventEmitter<Entry>;
   public selectedEntry: Entry;
-  public filterDone: string = "notDone";
+  public calorieFilter: string = "none";
   constructor() {
     this.onEntrySelect = new EventEmitter();
   }
@@ -48,7 +55,7 @@ export class EntryListComponent {
       new Entry(newEntry.name, newEntry.details, newEntry.calories, this.entryList.length)
     );
   }
-  // onChange(filterOption) {
-  //   this.filterDone = filterOption;
-  // }
+  onChange(filterOption) {
+    this.calorieFilter = filterOption;
+  }
 }
